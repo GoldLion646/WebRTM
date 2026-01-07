@@ -1,0 +1,33 @@
+'use client'
+
+import { Toaster as Sonner, ToasterProps } from 'sonner'
+
+const Toaster = ({ ...props }: ToasterProps) => {
+  return (
+    <Sonner
+      position="top-right"
+      richColors
+      expand={true}
+      closeButton
+      duration={4000}
+      toastOptions={{
+        style: {
+          background: 'var(--popover)',
+          color: 'var(--popover-foreground)',
+          border: '1px solid var(--border)',
+          borderRadius: '8px',
+          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        },
+        classNames: {
+          toast: 'group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg',
+          description: 'group-[.toast]:text-muted-foreground',
+          actionButton: 'group-[.toast]:bg-primary group-[.toast]:text-primary-foreground',
+          cancelButton: 'group-[.toast]:bg-muted group-[.toast]:text-muted-foreground',
+        },
+      }}
+      {...props}
+    />
+  )
+}
+
+export { Toaster }
